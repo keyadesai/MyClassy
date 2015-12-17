@@ -1,0 +1,115 @@
+<div class="container">
+
+  <div class="row new-event-btn">
+    <div class="col-md-2 col-md-offset-10 btn">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>New Topic</div>
+    </div>
+
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 " ng-class="{'tab-btn-active' : showMine,'tab-btn' : !showMine}">
+          <a ng-click="showMine = true">My Classes</a>
+        </li>
+        <li class="col-lg-6 col-md-6 col-sm-6 col-xs-6 "  ng-class="{'tab-btn-active' : !showMine,'tab-btn' : showMine}">
+          <a ng-click="showMine = false">All Classes</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="container main-section" ng-if="!showMine">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 widget"
+        ng-repeat="topic in topics">
+        <div class="flip">
+          <div class="card" ng-click="flip(topic)" ng-class="topic.class">
+            <div class="face front">
+              <div class="widget-div">
+                <div class="row">
+                  <h1>{{topic.name}}</h1>
+                  <p class="description">{{topic.description.slice(0,120)}}
+                    <a class="more-link" href="#/topic/{{topic.topicid}}/{{currentUser}}">.. More ...</a>
+                  </p>
+                  <div class="btn btn-primary" ng-if="topic.currentUserRole === ''">Enroll</div>
+                  <div class="btn btn-primary" ng-if="topic.currentUserRole === ''">Teach</div>
+                  <div class="btn btn-success" ng-if="topic.currentUserRole === 'Enrolled'">Enrolled</div>
+                  <div class="btn btn-info" ng-if="topic.currentUserRole === 'Teaching'">Teaching</div>
+                  <div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 interestednumbers">
+                      {{topic.students.length}} 5 Students
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 interestednumbers">
+                      {{topic.teachers.length}} 2 Teachers
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="face back">
+                <div class="widget-div">
+                  <div class="row">
+                    <h1>{{topic.name}}</h1>
+
+                    <p class="description">{{topic.description}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="container main-section" ng-if="showMine">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 widget"
+      ng-repeat="topic in topicsForThisUsers">
+
+
+      <div class="flip">
+        <div class="card" ng-click="flip(topic)" ng-class="topic.class">
+          <div class="face front">
+            <div class="widget-div">
+              <div class="row">
+                <h1>{{topic.name}}</h1>
+
+                <p class="description">{{topic.description.slice(0,120)}}
+                  <a class="more-link"  href="#/topic/{{topic.topicid}}/{{currentUser}}">..More ...</a></p>
+
+                  <div class="btn btn-success" ng-if="topic.currentUserRole === 'Enrolled'">Enrolled</div>
+                  <div class="btn btn-info" ng-if="topic.currentUserRole === 'Teaching'">Teaching</div>
+                  <div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 interestednumbers">
+                      <div>{{topic.students.length}} 5 Students</div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 interestednumbers">
+                      <div>{{topic.teachers.length}} 1 Teachers</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="face back">
+              <div class="widget-div">
+                <div class="row">
+                  <h1>{{topic.name}}</h1>
+
+                  <p class="description">{{topic.description}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+</div>

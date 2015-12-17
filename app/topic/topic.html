@@ -1,0 +1,92 @@
+<div class="container" ng-if="!showMine">
+    <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 widget">
+            <div class="row">
+                <h1>{{topicDetail.name}}</h1>
+
+                <p class="description">{{topicDetail.description}}
+                </p>
+
+                <div class="btn btn-primary" ng-if="currentUserRole === ''">Enroll</div>
+                <div class="btn btn-primary" ng-if="currentUserRole === ''">Teach</div>
+                <div class="btn btn-success" ng-if="currentUserRole === 'Enrolled'">Enrolled</div>
+                <div class="btn btn-info" ng-if="currentUserRole === 'Teaching'">Teaching</div>
+
+                <h4>Students</h4>
+                    <table class="table">
+                        <tr ng-repeat="student in usersDetailsForThisTopic | filter:LearnerFilter">
+                            <td>
+                                <div>
+                                    <div>{{student.name}}</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                <h4>Teachers</h4>
+                    <table class="table">
+                        <tr ng-repeat="teacher in usersDetailsForThisTopic |  filter:TeacherFilter">
+                            <td>
+                                <div>
+                                    <div>{{teacher.name}}</div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                <!--<div>-->
+                <!--<div>Students</div>-->
+                <!--<ul class="example-animate-container">-->
+                <!--<li class="animate-repeat" ng-repeat="student in usersDetailsForThisTopic | filter:LearnerFilter">-->
+                <!--<div>-->
+                <!--<div>{{student.name}}</div>-->
+                <!--</div>-->
+
+                <!--</li>-->
+                <!--</ul>-->
+                <!--<div>Teachers</div>-->
+                <!--<ul class="example-animate-container">-->
+                <!--<li class="animate-repeat" ng-repeat="teacher in usersDetailsForThisTopic |  filter:TeacherFilter">-->
+                <!--<div>-->
+                <!--<div>{{teacher.name}}</div>-->
+                <!--</div>-->
+
+                <!--</li>-->
+                <!--</ul>-->
+
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+
+
+    <!--<div class=container">-->
+
+
+    <!--<h1>{{topicDetail.name}}</h1>-->
+    <!--<p>{{topicDetail.description}}</p>-->
+    <!--<div ng-if="currentUserRole === ''">Enroll</div> <div  ng-if="currentUserRole === ''">Teach</div>-->
+    <!--<div  ng-if="currentUserRole === 'Enrolled'">Enrolled</div><div  ng-if="currentUserRole === 'Teaching'">Teaching</div>-->
+    <!--<div>Students</div>-->
+    <!--<ul class="example-animate-container">-->
+    <!--<li class="animate-repeat" ng-repeat="student in usersDetailsForThisTopic | filter:LearnerFilter">-->
+    <!--<div>-->
+    <!--<div>{{student.name}}</div>-->
+    <!--</div>-->
+
+    <!--</li>-->
+    <!--</ul>-->
+    <!--<div>Teachers</div>-->
+    <!--<ul class="example-animate-container">-->
+    <!--<li class="animate-repeat" ng-repeat="teacher in usersDetailsForThisTopic |  filter:TeacherFilter">-->
+    <!--<div>-->
+    <!--<div>{{teacher.name}}</div>-->
+    <!--</div>-->
+
+    <!--</li>-->
+    <!--</ul>-->
+
+
+    <!--</div>-->

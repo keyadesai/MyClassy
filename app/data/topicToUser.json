@@ -1,0 +1,28 @@
+[
+  {
+    "topicid": "1",
+    "userid": "1",
+    "role": "L"
+  },
+  {
+    "topicid": "1",
+    "userid": "2",
+    "role": "L"
+  },
+  {
+    "topicid": "4",
+    "userid": "1",
+    "role": "L"
+  },
+
+  {
+    "topicid": "1",
+    "userid": "3",
+    "role": "T"
+  },
+  {
+    "topicid": "2",
+    "userid": "1 ",
+    "role": "L"
+  }
+]
